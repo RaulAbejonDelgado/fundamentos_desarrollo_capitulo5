@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+    <openerp>
+        <data>
+            <act_window id="action_todo_stage"
+                name="To-Do Task Stages"
+                res_model="todo.task.stage"
+                view_mode="tree,form"/>
+                 
+            <act_window id="fundamentos_desarrollo_capitulo2.action_todo_task"
+                name="To-Do Tasks"
+                res_model="todo.task"
+                view_mode="tree,form,calendar,gantt,graph"
+                target="current"
+                context="{'default_user_id':    uid}"
+                domain="[]"
+                limit="80"/>
+                
+            <act_window id="action_todo_task_stage"
+                name="To-Do Task Stages"
+                res_model="todo.task.stage"
+                src_model="todo.task"
+                multi="False"/>
+                
+            <menuitem id="menu_todo_task_main"
+                name="To-Do"
+                parent="mail.mail_my_stuff"/>
+                
+                <menuitem id="fundamentos_desarrollo_capitulo2.menu_todo_task"
+                    name="To-Do Tasks"
+                    parent="menu_todo_task_main"
+                    sequence="10"
+                    action="fundamentos_desarrollo_capitulo2.action_todo_task"/>
+                
+                <menuitem id="menu_todo_task_stage"
+                    name="To-Do Stages"
+                    parent="menu_todo_task_main"
+                    sequence="20"
+                    action="action_todo_stage"/>
+        </data>
+     </openerp>
